@@ -123,6 +123,11 @@ class MarkdownVersHtml(Convertisseur):
             html.append("</ul>")
         return "\n".join(html)
 
+class YamlVersJson(Convertisseur):
+    def convertir(self, contenu: str) -> str:
+        pass
+
+
 
 # ---------------------------------------------------------------------------
 # Fonction de sélection du convertisseur — if/elif en cascade
@@ -137,6 +142,7 @@ class FabriqueConvertisseur:
         ("json", "xml"): JsonVersXml,
         ("xml", "json"): XmlVersJson,
         ("md",  "html"): MarkdownVersHtml,
+        ("yaml", "json"): YamlVersJson
     }
 
     @classmethod
